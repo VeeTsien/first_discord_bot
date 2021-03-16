@@ -19,3 +19,13 @@ class RunPeeWeb:
     soup = BeautifulSoup(content, 'html.parser')
     result_links = soup.findAll('a')
     return result_links
+  
+      
+  def send_link(self, command, result_links, search_words): 
+    send_link = set()
+    for link in result_links:
+        text = link.text.lower()
+        if search_words in text: 
+         if command in text:
+            send_link.add(link.get('href'))
+    return send_link
