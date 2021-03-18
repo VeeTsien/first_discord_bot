@@ -29,9 +29,9 @@ async def on_message(message):
   
   if f'$search' in message_content:
 
-    key_words, search_words = runpee_web.key_words_search_words('$search', message_content)
+    key_words, search_words = runpee_web.key_words_search_words(message_content)
     result_links = runpee_web.search(key_words)
-    links = runpee_web.send_link(' ', result_links, search_words)
+    links = runpee_web.send_link(result_links, search_words)
     
     if len(links) > 0:
       for link in links:
