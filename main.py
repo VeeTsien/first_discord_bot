@@ -7,7 +7,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = discord.Client()
-no_result_message = 'Sorry, we can\'t find what you are searching for. We may not have written anything about it yet, but you can subscribe to our news letter for updates of our newest content --> https://runpee.com/about-runpee/runpee-movie-newsletter/'
+
+hello_message = '''Hello there! I\'m the fidgeting bot from RunPee. Sorry but I really need to go to the bathroom... 
+Please read my manual by typing $help or $commands while I\'m away.'''
+
+no_result_message = '''Sorry, we can\'t find what you are searching for. We may not have written anything about it yet, 
+but you can subscribe to our news letter for updates of our newest content 
+--> https://runpee.com/about-runpee/runpee-movie-newsletter/'''
 
 # instantiate RunPeeWeb class from search_runpee.py
 runpee_web = search_runpee.RunPeeWeb()
@@ -25,7 +31,7 @@ async def on_message(message):
 
   
   if message.content.startswith(f'$hello'):
-    await message.channel.send('Hello there! I\'m the bad robot you fart face.')
+    await message.channel.send(hello_message)
   
   if f'$search' in message_content:
 
